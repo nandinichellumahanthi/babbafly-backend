@@ -14,8 +14,8 @@ const {
 router.get("/", getAllListings);
 router.get("/:id", getListingById);
 
-router.post("/", authMiddleware, createListing);
-router.put("/:id", authMiddleware, updateListing);
-router.delete("/:id", authMiddleware, deleteListing);
+router.post("/", createListing);
+router.put("/:id", updateListing);
+router.delete("/:id", deleteListing);
 
 module.exports = router;
