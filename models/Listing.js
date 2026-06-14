@@ -13,6 +13,7 @@ const listingSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+sold: { type: Boolean, default: false },
 
     rating: {
       type: Number,
