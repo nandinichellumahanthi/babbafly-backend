@@ -9,11 +9,13 @@ const listingSchema = new mongoose.Schema(
     location: String,
     images: [String],
 
-    sellerId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-sold: { type: Boolean, default: false },
+    userId: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: "User",   // 👈 must say "User" exactly
+  required: true,
+},
+
+    sold: { type: Boolean, default: false },
 
     rating: {
       type: Number,

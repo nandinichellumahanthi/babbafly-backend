@@ -15,11 +15,9 @@ const statsRoutes = require("./routes/statsRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const chatRoutes = require("./routes/chatRoutes");
-const { Server } = require("socket.io");
 
 const { Message, Conversation } = require("./models/chatModel");
 const Notification = require("./models/Notification");
-const notificationRoutes = require("./routes/notificationRoutes");
 
 const app = express();
 const server = http.createServer(app); // Wrap express in http.Server for Socket.io
@@ -48,7 +46,6 @@ app.use("/api/stats", statsRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/chat", chatRoutes);
-app.use("/api/notifications", notificationRoutes);
 // Home Route
 app.get("/", (req, res) => {
   res.send("BabbaFly Backend Running");
