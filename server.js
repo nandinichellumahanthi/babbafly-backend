@@ -154,19 +154,7 @@ io.on("connection", (socket) => {
 
 // Start Server (use `server`, not `app`)
 const PORT = process.env.PORT || 5000;
-// ONE-TIME FIX: Assign userId to old listings that have none
-app.get("/api/fix-listings/:userId", async (req, res) => {
-  try {
-    const Listing = require("./models/Listing");
-    const result = await Listing.updateMany(
-      { userId: { $exists: false } },        // find listings with no userId
-      { $set: { userId: req.params.userId } } // set your userId on all of them
-    );
-    res.json({ message: "Fixed!", modifiedCount: result.modifiedCount });
-  } catch (err) {
-    res.json({ error: err.message });
-  }
-});
+
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
